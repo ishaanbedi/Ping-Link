@@ -1,0 +1,58 @@
+<!--
+ISHAAN BEDI 2022
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+
+    <title>Ping Link</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="headings">
+                <h2>Ping Link</h2>
+                <h3>The link shortener</h3>
+            </div>
+            <form method="post" action="/shorturls">
+                <input type="url" name="fullUrl" id="url-input" required placeholder="Paste your URL here">
+                <button type="submit" name="submit-button" class="shorten-url">Shorten It</button>
+            </form>
+            <figure>
+                <table role="grid">
+                    <thead>
+                        <tr>
+                            <th scope="col">FULL URL</th>
+                            <th scope="col">SHORT URL</th>
+                            <th scope="col">CLICKS</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% shortUrls.forEach(shortUrl=> { %>
+                            <tr>
+                                <td><a href="<%= shortUrl.full %>">
+                                        <%= shortUrl.full %>
+                                    </a></td>
+                                <td><a href="<%= shortUrl.short %>">
+                                        <%= shortUrl.short %>
+                                    </a></td>
+                                <td>
+                                    <%= shortUrl.clicks %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </figure>
+        </div>
+    </div>
+</body>
+
+</html>
