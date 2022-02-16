@@ -5,7 +5,7 @@ const app = express();
 
 
 
-mongoose.connect(process.env.MONGO_URL || "mongodb://localhost/urlShortener"
+mongoose.connect('mongodb://localhost/urlShortener'
     , {
         useNewUrlParser: true,
         useUnifiedTopology: true
